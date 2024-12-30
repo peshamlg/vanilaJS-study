@@ -7,23 +7,34 @@
     <link rel="stylesheet" href="css/styles.css" />
   </head>
   <body>
-    <form id="login-form" class="hidden">
-      <input
-        type="text"
-        required
-        maxlength="20"
-        placeholder="Please enter your name!"
-      />
-      <button id="submit">Login</button>
-    </form>
-    <h1 id="greeting" class="hidden"></h1>
-    <h2 id="clock">00:00:00</h2>
-    <form id="todo-form">
-      <input type="text" id="todo-input" placeholder="Write a to do" required />
-      <button id="todo-submit">Add</button>
-    </form>
-    <ul id="todo-list"></ul>
-    <div id="quote">
+    <div id="login-container">
+      <div id="greeting-container">
+        <h1 id="greeting" class="hidden"></h1>
+        <h2 id="clock">00:00:00</h2>
+      </div>
+      <form id="login-form" class="hidden">
+        <input
+          type="text"
+          required
+          maxlength="20"
+          placeholder="Please enter your name!"
+        />
+        <button id="submit">Login</button>
+      </form>
+    </div>
+    <div id="todo-container">
+      <form id="todo-form">
+        <input
+          type="text"
+          id="todo-input"
+          placeholder="Write a to do"
+          required
+        />
+        <button id="todo-submit">Add</button>
+      </form>
+      <ul id="todo-list"></ul>
+    </div>
+    <div id="quote-container">
       <span id="quote-text"></span>
       <span id="quote-author"></span>
     </div>
