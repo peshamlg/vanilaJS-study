@@ -3,6 +3,7 @@ const ctx = canvas.getContext("2d");
 const lineWidth = document.querySelector("#line-width");
 const color = document.querySelector("#color");
 const colorOptions = document.querySelectorAll(".color-option");
+const modeBtn = document.querySelector("#mode-btn");
 
 canvas.width = 800;
 canvas.height = 800;
@@ -11,6 +12,7 @@ ctx.strokeStyle = color.value;
 ctx.fillStyle = color.value;
 
 let isDrawing = false;
+let isFilling = false;
 
 function drawingLine(event) {
   if (isDrawing) {
@@ -48,13 +50,31 @@ function onColorOptionClick(event) {
   colorChange(event.target.dataset.color);
 }
 
+function onModeBtnClick() {
+  if (isFilling) {
+    isFilling = false;
+    modeBtn.innerText = "Fill";
+  } else {
+    isFilling = true;
+    modeBtn.innerText = "Draw";
+  }
+}
+
+function onCanvasClick() {
+  if (isFilling) {
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+  }
+}
+
 canvas.addEventListener("mousemove", drawingLine);
 canvas.addEventListener("mousedown", startDrawing);
 canvas.addEventListener("mouseup", stopDrawing);
 canvas.addEventListener("mouseleave", stopDrawing);
+canvas.addEventListener("click", onCanvasClick);
 
 lineWidth.addEventListener("change", onLineWidthChange);
 color.addEventListener("change", onColorChange);
 colorOptions.forEach((colorOption) => {
   colorOption.addEventListener("click", onColorOptionClick);
 });
+modeBtn.addEventListener("click", onModeBtnClick);
