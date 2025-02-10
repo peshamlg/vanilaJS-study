@@ -7,12 +7,14 @@ const modeBtn = document.querySelector("#mode-btn");
 const clearBtn = document.querySelector("#clear-btn");
 const eraseBtn = document.querySelector("#erase-btn");
 const fileInput = document.querySelector("#file");
+const textInput = document.querySelector("#text");
 
 canvas.width = 800;
 canvas.height = 800;
 ctx.lineWidth = lineWidth.value;
 ctx.strokeStyle = color.value;
 ctx.fillStyle = color.value;
+ctx.lineCap = "round";
 
 let isDrawing = false;
 let isFilling = false;
@@ -91,11 +93,23 @@ function onFileChange(event) {
   };
 }
 
+function onDoubleClick(event) {
+  const text = textInput.value;
+  if (text !== "") {
+    ctx.save();
+    ctx.lineWidth = 1;
+    ctx.font = "68px 'Press Start 2P'";
+    ctx.fillText(text, event.offsetX, event.offsetY);
+    ctx.restore();
+  }
+}
+
 canvas.addEventListener("mousemove", drawingLine);
 canvas.addEventListener("mousedown", startDrawing);
 canvas.addEventListener("mouseup", stopDrawing);
 canvas.addEventListener("mouseleave", stopDrawing);
 canvas.addEventListener("click", onCanvasClick);
+canvas.addEventListener("dblclick", onDoubleClick);
 lineWidth.addEventListener("change", onLineWidthChange);
 color.addEventListener("change", onColorChange);
 colorOptions.forEach((colorOption) => {
