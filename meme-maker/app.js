@@ -59,10 +59,10 @@ function onColorOptionClick(event) {
 function onModeBtnClick() {
   if (isFilling) {
     isFilling = false;
-    modeBtn.innerText = "Fill";
+    modeBtn.innerText = "🎨 Fill";
   } else {
     isFilling = true;
-    modeBtn.innerText = "Draw";
+    modeBtn.innerText = "🖌️ Draw";
   }
 }
 
@@ -80,7 +80,7 @@ function onClearBtnClick() {
 function onEraseBtnClick() {
   ctx.strokeStyle = "white";
   isFilling = false;
-  modeBtn.innerText = "Fill";
+  modeBtn.innerText = "🎨 Fill";
 }
 
 function onFileChange(event) {

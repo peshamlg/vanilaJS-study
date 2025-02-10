@@ -55,3 +55,8 @@ Canvas API를 사용하여 그림판과 밈(meme) 생성기를 만들어보는 �
 - CSS
 - JavaScript
   - Canvas API
+
+**To Do**
+
+- [] 텍스트 글꼴 및 크기 바꾸기 기능 추가
+- [] 그림을 그릴 때 fill & stroke 모드 선택할 수 있는 옵션 추가
